@@ -25,7 +25,7 @@ public class CounterIncreaseHandler implements Runnable {
 
     public CounterIncreaseHandler(SharedCounter sharedCounter) {
         //TODO#2-1 sharedCounter를 초기화 합니다.  sharedCounter가 null 이면 IllegalArgumentException이 발생 합니다.
-        if(sharedCounter == null) {
+        if(Objects.isNull(sharedCounter)) {
             throw  new IllegalArgumentException();
         }
         this.sharedCounter = sharedCounter;
