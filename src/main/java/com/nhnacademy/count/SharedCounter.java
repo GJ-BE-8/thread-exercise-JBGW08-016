@@ -45,11 +45,9 @@ public class SharedCounter {
 
     public long decreaseAndGet() {
         //TODO#1-4 count = count -1  부분 lock을 걸고, count를 반환 합니다.
-        final Lock mutex = new ReentrantLock();
-
-        mutex.lock();
-        count = count - 1;
-        mutex.unlock();
+        synchronized (this) {
+            count = count -1;
+        }
         return count;
     }
 }
